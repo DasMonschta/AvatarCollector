@@ -100,13 +100,19 @@ class AvatarGallery(QDialog):
         self.ui_btn_reload.clicked.connect(ac.loadAvatars)
     
     def populate(self, pics, imagesPerRow=4, flags=Qt.KeepAspectRatioByExpanding):
+    
+        i = 0
+        while i < self.gridLayout.count():
+            self.gridLayout.itemAt(i).widget().deleteLater()
+            i += 1            
+            
         row = col = 0
         for pic in pics:
             label = AvatarLabel("")
             label.path = pic
             pixmap = QPixmap(pic)
-            if self.ac.count == 1:          
-                pixmap = pixmap.scaledToWidth(400, Qt.FastTransformation)
+            if self.ac.count < 4:          
+                pixmap = pixmap.scaledToWidth(400/self.ac.count, Qt.FastTransformation)
             else:
                 pixmap = pixmap.scaledToWidth(100, Qt.FastTransformation)
             label.setPixmap(pixmap)
