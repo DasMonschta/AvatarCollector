@@ -1,4 +1,4 @@
-# Avatar Collector
+# Avatar Collector ![GitHub All Releases](https://img.shields.io/github/downloads/DerLuemmel/AvatarCollector/total.svg?label=Downloads&style=popout-square)
 
 Script for Teamspeak 3 pyTSon plugin
 
